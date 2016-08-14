@@ -42,6 +42,8 @@ You should then see the following totals calculated shortly after entering these
 |Milk and Banana|	241	     | 0.59	   |9          | 9     | 34      | 3       | banana, peeled, wegmans, 100g            | 1        |
 |               |	         |     	   |           |       |         |         | milk, creamline whole, trickling springs | 1        |
 
+This is one meal. To create a new meal underneath, enter the meal name in the first column of a new row underneath the last row containing the milk ingredient. This line should turn blue, denoting the start of a new meal.
+
 ## Combining meals to get daily totals
 Go to Diet tab. Use the dropdown options in the cells for the day you want to add meals to and select meals you want.
 Combine meals for a day by placing them underneath each other in that days column. Totals for that day will be calculated automatically in the frozen rows for that day's column.
