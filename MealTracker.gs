@@ -103,6 +103,10 @@ function onEdit(event) {
   var sheet = SpreadsheetApp.getActiveSheet();
   if (sheet.getName() == "Meals") {
     var last = lastRow("A");
+    // Dont delete meal headers if no meals present.
+    if (last == 1) {
+      return;
+    }
     var range = sheet.getRange("B2:G" + last);
     var rangeValues = range.getValues();
     for (var i=0;i<range.getHeight();++i) {
