@@ -116,6 +116,26 @@ function onEdit(event) {
   }
 }
 
+function onOpen(event) {
+  var ss = SpreadsheetApp.getActiveSpreadsheet();
+  var mealSheet = ss.getSheetByName("Meals");
+  var dietSheet = ss.getSheetByName("Diet");
+  
+  var mealIngNameRange = mealSheet.getRange("H2:H");
+  var mealIngServRange = mealSheet.getRange("I2:I");
+  var mealIngRule = SpreadsheetApp.newDataValidation().requireValueInRange(mealIngNameRange).build();
+  var mealServingRule = SpreadsheetApp.newDataValidation().requireNumberGreaterThan(0).build();
+  
+  mealIngNameRange.setDataValidation(mealIngRule);
+  mealIngServRange.setDataValidation(mealServingRule);
+  
+  var dietMealRange = dietSheet.getRange("B8:H");
+  var mealNameRange = mealSheet.getRange("A2:A");
+  
+  var dietMealRule = SpreadsheetApp.newDataValidation().requireValueInRange(mealNameRange).build();
+  dietMealRange.setDataValidation(dietMealRule);
+}
+
 
 function lastRow(column) {
   var lastRow = SpreadsheetApp.getActiveSheet().getMaxRows();
