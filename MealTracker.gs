@@ -118,12 +118,14 @@ function onEdit(event) {
 
 function onOpen(event) {
   var ss = SpreadsheetApp.getActiveSpreadsheet();
+  var ingSheet = ss.getSheetByName("Ingredients");
   var mealSheet = ss.getSheetByName("Meals");
   var dietSheet = ss.getSheetByName("Diet");
   
+  var ingNameRange = ingSheet.getRange("A2:A");
   var mealIngNameRange = mealSheet.getRange("H2:H");
   var mealIngServRange = mealSheet.getRange("I2:I");
-  var mealIngRule = SpreadsheetApp.newDataValidation().requireValueInRange(mealIngNameRange).build();
+  var mealIngRule = SpreadsheetApp.newDataValidation().requireValueInRange(ingNameRange).build();
   var mealServingRule = SpreadsheetApp.newDataValidation().requireNumberGreaterThan(0).build();
   
   mealIngNameRange.setDataValidation(mealIngRule);
